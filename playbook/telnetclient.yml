@@ -1,0 +1,18 @@
+---
+- name: Instalar Telnet Client y reiniciar Windows
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Instalar Telnet Client
+      win_feature:
+        name: TelnetClient
+        state: present
+
+    - name: Reiniciar el sistema
+      win_reboot:
+        reboot_timeout: 600
+        msg: "Reinicio automático tras la instalación de Telnet Client"
+        pre_reboot_delay: 5
+        post_reboot_delay: 60
+        test_command: whoami
