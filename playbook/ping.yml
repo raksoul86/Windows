@@ -1,6 +1,6 @@
 ---
 - name: Realizar ping
-  hosts: Windows
+  hosts: all
   gather_facts: no
 
   tasks:
