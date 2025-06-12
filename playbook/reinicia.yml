@@ -1,0 +1,12 @@
+---
+- name: Reiniciar máquinas Windows
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Reiniciar el sistema
+      win_reboot:
+        reboot_timeout: 15
+        msg: "Reinicio automático iniciado por Ansible"
+        pre_reboot_delay: 5
+        post_reboot_delay: 30
+        test_command: whoami
